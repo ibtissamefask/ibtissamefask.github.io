@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ibtissame Fask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        dark: '#181818'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .typing-animation {
+            border-right: 3px solid #5D5CDE;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { border-color: #5D5CDE; }
+            51%, 100% { border-color: transparent; }
+        }
+        .skill-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #5D5CDE, #764ba2);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-dark text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-primary">IF</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="hover:text-primary transition-colors">Accueil</a>
+                    <a href="#a-propos" class="hover:text-primary transition-colors">À propos</a>
+                    <a href="#competences" class="hover:text-primary transition-colors">Compétences</a>
+                    <a href="#projets" class="hover:text-primary transition-colors">Projets</a>
+                    <a href="#formation" class="hover:text-primary transition-colors">Formation</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-dark z-40 transform translate-x-full transition-transform duration-300 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#accueil" class="mobile-link hover:text-primary transition-colors">Accueil</a>
+            <a href="#a-propos" class="mobile-link hover:text-primary transition-colors">À propos</a>
+            <a href="#competences" class="mobile-link hover:text-primary transition-colors">Compétences</a>
+            <a href="#projets" class="mobile-link hover:text-primary transition-colors">Projets</a>
+            <a href="#formation" class="mobile-link hover:text-primary transition-colors">Formation</a>
+            <a href="#contact" class="mobile-link hover:text-primary transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="min-h-screen flex items-center justify-center gradient-bg">
+        <div class="text-center text-white px-4">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto bg-white/20 rounded-full flex items-center justify-center text-4xl font-bold mb-6">
+                    IF
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                    Ibtissame <span class="text-yellow-300">Fask</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-6 typing-animation" id="typing-text">
+                    Future Ingénieure en Génie Mécatronique
+                </p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">
+                    Étudiante passionnée en Génie Mécatronique et Systèmes Intelligents, 
+                    spécialisée en IA, IoT et automatisation industrielle.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projets" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        Voir mes projets
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="a-propos" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">À propos de moi</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-primary">Profile</h3>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Étudiante en deuxième année du cycle d'ingénieur spécialisée en Génie Mécatronique et Systèmes Intelligents, 
+                        je suis passionnée par l'innovation technologique et l'automatisation industrielle.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Actuellement à la recherche d'un stage de fin d'année d'une durée de 2 à 3 mois pour approfondir 
+                        mes compétences pratiques et contribuer à des projets technologiques innovants.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div><strong>Téléphone:</strong> 06 10 14 92 01</div>
+                        <div><strong>Email:</strong> Ibtissamfask@gmail.com</div>
+                        <div><strong>Localisation:</strong> Casablanca</div>
+                        <div><strong>Statut:</strong> Étudiante</div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-primary">Langues</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Français</span>
+                                <span>Avancé</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Arabe</span>
+                                <span>Natif</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Anglais</span>
+                                <span>Intermédiaire</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="competences" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Compétences Techniques</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programmation -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Programmation</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• C, C embarqué, Python</li>
+                        <li>• MATLAB, Java, JavaScript</li>
+                        <li>• Langage d'Assemblage</li>
+                        <li>• Arduino, SQL</li>
+                    </ul>
+                </div>
+
+                <!-- IA & Vision -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">IA & Vision</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• YOLOv8, OpenCV</li>
+                        <li>• PyTorch, TensorFlow</li>
+                        <li>• CNN, RNN</li>
+                        <li>• Tesseract OCR</li>
+                    </ul>
+                </div>
+
+                <!-- Conception & Simulation -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Conception & Simulation</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• CATIA V5, ABAQUS</li>
+                        <li>• Simulink, FluidSIM</li>
+                        <li>• Modélisation robotique</li>
+                        <li>• Cinématique 4 DOF</li>
+                    </ul>
+                </div>
+
+                <!-- Électronique & IoT -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Électronique & IoT</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• ESP32, Blynk</li>
+                        <li>• Capteurs divers</li>
+                        <li>• EasyEDA, Proteus</li>
+                        <li>• Conception PCB</li>
+                    </ul>
+                </div>
+
+                <!-- Automatisation -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Automatisation</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• TIA Portal</li>
+                        <li>• Systèmes industriels</li>
+                        <li>• Contrôle automatique</li>
+                        <li>• Optimisation processus</li>
+                    </ul>
+                </div>
+
+                <!-- Outils -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg card-hover">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Outils</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>• Microsoft Office Suite</li>
+                        <li>• Word, Excel, PowerPoint</li>
+                        <li>• Outils de collaboration</li>
+                        <li>• Gestion de projets</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Projets & Réalisations</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-purple-500 to-blue-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-eye text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Reconnaissance de caractères</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Outil d'IA pour lire automatiquement les numéros moulés sur les moyeux de roues 
+                            (Compétition Diginnov 2025).
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Tesseract OCR</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-cloud-rain text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Station météo connectée</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Système IoT avec capteurs et interface mobile pour surveiller 
+                            les conditions climatiques et optimiser l'irrigation agricole.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">IoT</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">ESP32</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-hard-hat text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Détection EPI industriel</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Système de reconnaissance en temps réel des équipements de sécurité 
+                            (casque, masque, gants) à l'aide de YOLOv8.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">YOLOv8</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Computer Vision</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-red-500 to-pink-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Bras robotique 4 DOF</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Modélisation et contrôle d'un bras robotique à 4 axes avec 
+                            étude cinématique directe/inverse.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Robotique</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Simulation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-industry text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Automatisation sertissage</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Réalisation de simulations pour automatiser une machine de sertissage 
+                            avec optimisation de précision.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Automatisation</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Optimisation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-gamepad text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Application Web Beer Game</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Développement d'une application web interactive pour simuler le jeu de la bière, 
+                            outil pédagogique pour comprendre la gestion de chaîne d'approvisionnement.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Web App</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Simulation</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Supply Chain</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 7 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-book text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Système de Gestion de Bibliothèque</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Application web complète pour la gestion d'une bibliothèque avec système de prêt, 
+                            catalogue de livres, gestion des utilisateurs et tableau de bord administrateur.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Web Development</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Database</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">CRUD</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 8 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-rose-500 to-pink-500 h-48 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Système d'Analyse de Performance</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                            Plateforme d'analyse et de visualisation de données pour le suivi des performances 
+                            industrielles avec tableaux de bord interactifs et rapports automatisés.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Data Analysis</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Dashboard</span>
+                            <span class="bg-primary/20 text-primary px-2 py-1 rounded text-xs">Reporting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formation -->
+    <section id="formation" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Formation & Certifications</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Formation -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-primary">Parcours Académique</h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-primary pl-6">
+                            <div class="text-sm text-gray-500 dark:text-gray-400">2023 - 2026</div>
+                            <h4 class="text-lg font-semibold">Cycle d'Ingénieur</h4>
+                            <p class="text-gray-600 dark:text-gray-300">Génie Mécatronique et Systèmes Intelligents</p>
+                        </div>
+                        <div class="border-l-4 border-primary pl-6">
+                            <div class="text-sm text-gray-500 dark:text-gray-400">2020 - 2023</div>
+                            <h4 class="text-lg font-semibold">DEUST</h4>
+                            <p class="text-gray-600 dark:text-gray-300">Sciences Mathématiques A - Option français</p>
+                        </div>
+                        <div class="border-l-4 border-primary pl-6">
+                            <div class="text-sm text-gray-500 dark:text-gray-400">2019 - 2020</div>
+                            <h4 class="text-lg font-semibold">Baccalauréat</h4>
+                            <p class="text-gray-600 dark:text-gray-300">Sciences Mathématiques - Lycée Bajja Ben Ahmed</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-primary">Certifications</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h4 class="font-semibold">Cyber Security Awareness</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">HP Life</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h4 class="font-semibold">Data Science & Analytics</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Alison</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h4 class="font-semibold">Fundamentals of Internet of Things</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">365 Data Science</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h4 class="font-semibold">Deep Learning with TensorFlow 2</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">365 Data Science</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <h4 class="font-semibold">Machine Learning in Python</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">365 Data Science</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expérience & Activités -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Expérience & Activités</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Expérience -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-primary">Stages & Expérience</h3>
+                    <div class="border-l-4 border-primary pl-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400">Juillet - Août 2024</div>
+                        <h4 class="text-lg font-semibold mb-2">Stage d'initiation</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-2">Service maintenance</p>
+                        <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                            <li>• Automatisation de processus industriels</li>
+                            <li>• Optimisation des performances machines</li>
+                            <li>• Analyse et amélioration des systèmes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Activités -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-primary">Clubs & Activités</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Octobre 2024 - Aujourd'hui</div>
+                            <h4 class="font-semibold">Club Aéroclub</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Membre actif</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Octobre 2023 - Mai 2024</div>
+                            <h4 class="font-semibold">Club M2ie</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Membre actif</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences personnelles & Centres d'intérêt -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Compétences personnelles -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-primary">Compétences Personnelles</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-users text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Travail en équipe</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-crown text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Leadership</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-clock text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Gestion du temps</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-tasks text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Organisation</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-lightbulb text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Esprit critique</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-puzzle-piece text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Résolution de problèmes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Centres d'intérêt -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-8 text-primary">Centres d'intérêt</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-palette text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Design graphique</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-plane text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Voyage</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-running text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Sport</p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow text-center">
+                            <i class="fas fa-book text-primary text-2xl mb-2"></i>
+                            <p class="font-semibold">Lecture</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-16">
+                <h2 class="text-4xl font-bold mb-4">Contactez-moi</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    Je suis à la recherche d'un stage de fin d'année. N'hésitez pas à me contacter !
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <i class="fas fa-phone text-primary text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Téléphone</h3>
+                    <p class="text-gray-600 dark:text-gray-300">06 10 14 92 01</p>
+                    <p class="text-gray-600 dark:text-gray-300">07 70 68 93 76</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <i class="fas fa-envelope text-primary text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Email</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Ibtissamfask@gmail.com</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <i class="fas fa-map-marker-alt text-primary text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold mb-2">Localisation</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Casablanca, Maroc</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-4">
+                <div class="text-2xl font-bold text-primary mb-2">Ibtissame Fask</div>
+                <p class="text-gray-400">Future Ingénieure en Génie Mécatronique et Systèmes Intelligents</p>
+            </div>
+            <p class="text-gray-400">
+                © 2024 Ibtissame Fask. Portfolio créé avec passion.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = [
+            'Future Ingénieure en Génie Mécatronique',
+            'Spécialiste en IA et Systèmes Intelligents',
+            'Passionnée d\'Innovation Technologique',
+            'Experte en Automatisation Industrielle'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                }, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            const typeSpeed = isDeleting ? 50 : 100;
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Start typing animation
+        setTimeout(typeWriter, 1000);
+
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Observe the skills section
+        const skillsSection = document.querySelector('#a-propos');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Add scroll effect to cards
+        const cards = document.querySelectorAll('.card-hover');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            cardObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
